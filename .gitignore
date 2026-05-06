@@ -1,0 +1,24 @@
+# Flutter
+build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+*.iml
+
+# Android
+android/.gradle
+android/local.properties
+android/captures/
+
+# HuggingFace token â€” NEVER commit this
+**/your_token*
+
+# IDE
+.idea/
+.vscode/
+*.log
+# Model files — too large for git
+*.task
+*.bin
+*.gguf
