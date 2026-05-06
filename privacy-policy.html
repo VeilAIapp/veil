@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veil — Privacy Policy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:           #0F0F0F;
+      --surface:      #1A1A1A;
+      --surface-high: #242424;
+      --border:       #2E2E2E;
+      --text-primary: #EFEFEF;
+      --text-second:  #8A8A8A;
+      --text-hint:    #555555;
+      --accent:       #EFEFEF;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Grain overlay ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 80px 32px 120px;
+    }
+
+    /* ── Header ── */
+    header {
+      margin-bottom: 72px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 48px;
+    }
+
+    .veil-icon {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+    }
+
+    .wordmark {
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 6px;
+      color: var(--text-primary);
+      text-transform: uppercase;
+    }
+
+    .page-title {
+      font-size: clamp(32px, 6vw, 48px);
+      font-weight: 300;
+      letter-spacing: -0.5px;
+      color: var(--text-primary);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .page-subtitle {
+      font-size: 15px;
+      color: var(--text-second);
+      font-weight: 300;
+    }
+
+    .updated {
+      display: inline-block;
+      margin-top: 20px;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--text-hint);
+      letter-spacing: 0.5px;
+      padding: 5px 10px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+    }
+
+    /* ── The one-liner banner ── */
+    .banner {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-bottom: 64px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.15s ease forwards;
+    }
+
+    .banner-text {
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--text-primary);
+      line-height: 1.5;
+    }
+
+    .banner-text em {
+      font-style: normal;
+      color: var(--text-second);
+    }
+
+    /* ── Sections ── */
+    .section {
+      margin-bottom: 52px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards;
+    }
+
+    .section:nth-child(1) { animation-delay: 0.2s; }
+    .section:nth-child(2) { animation-delay: 0.3s; }
+    .section:nth-child(3) { animation-delay: 0.4s; }
+    .section:nth-child(4) { animation-delay: 0.5s; }
+    .section:nth-child(5) { animation-delay: 0.6s; }
+    .section:nth-child(6) { animation-delay: 0.7s; }
+    .section:nth-child(7) { animation-delay: 0.8s; }
+
+    .section-number {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--text-hint);
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .section h2 {
+      font-size: 19px;
+      font-weight: 500;
+      color: var(--text-primary);
+      letter-spacing: -0.2px;
+      margin-bottom: 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section p {
+      font-size: 15px;
+      color: var(--text-second);
+      margin-bottom: 12px;
+      font-weight: 300;
+    }
+
+    .section p:last-child { margin-bottom: 0; }
+
+    .section p strong {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    /* ── Highlight pill ── */
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--surface-high);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 5px 12px;
+      font-size: 12px;
+      color: var(--text-second);
+      margin: 4px 4px 4px 0;
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0.2px;
+    }
+
+    .pill::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #22C55E;
+      flex-shrink: 0;
+    }
+
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 16px;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 64px 0;
+      opacity: 0;
+      animation: fadeUp 0.6s 0.5s ease forwards;
+    }
+
+    /* ── Contact ── */
+    .contact {
+      opacity: 0;
+      animation: fadeUp 0.7s 0.85s ease forwards;
+    }
+
+    .contact p {
+      font-size: 14px;
+      color: var(--text-second);
+      margin-bottom: 8px;
+    }
+
+    .contact a {
+      color: var(--text-primary);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1px;
+      transition: border-color 0.2s;
+    }
+
+    .contact a:hover { border-color: var(--text-second); }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 80px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      opacity: 0;
+      animation: fadeUp 0.7s 1s ease forwards;
+    }
+
+    .footer-left {
+      font-size: 12px;
+      color: var(--text-hint);
+    }
+
+    .footer-tagline {
+      font-size: 12px;
+      color: var(--text-hint);
+      font-style: italic;
+    }
+
+    /* ── Animation ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 600px) {
+      .wrap { padding: 48px 20px 80px; }
+      .banner { padding: 20px 20px; }
+      .banner-text { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header>
+      <div class="logo-row">
+        <!-- Five-layer stacked V icon matching the Flutter CustomPainter -->
+        <svg class="veil-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="11.5" y1="3"  x2="18" y2="33" stroke="#141414" stroke-width="1.0" stroke-linecap="round"/>
+          <line x1="13.1" y1="3"  x2="19.6" y2="33" stroke="#383838" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="14.7" y1="3"  x2="21.2" y2="33" stroke="#707070" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="16.3" y1="3"  x2="22.8" y2="33" stroke="#B0B0B0" stroke-width="2.2" stroke-linecap="round"/>
+          <line x1="17.9" y1="3"  x2="24.4" y2="33" stroke="#EFEFEF" stroke-width="2.6" stroke-linecap="round"/>
+        </svg>
+        <span class="wordmark">Veil</span>
+      </div>
+
+      <h1 class="page-title">Privacy Policy</h1>
+      <p class="page-subtitle">What we know about you, how we use it, and why the answer to both is almost nothing.</p>
+      <span class="updated">Last updated: May 2025</span>
+    </header>
+
+    <!-- The one-liner -->
+    <div class="banner">
+      <p class="banner-text">
+        Veil runs entirely on your device. <em>Your conversations never leave your phone — not to our servers, not to anyone's servers, not anywhere.</em> That's not a policy. That's how the app is built.
+      </p>
+    </div>
+
+    <!-- Sections -->
+    <div class="sections">
+
+      <div class="section">
+        <div class="section-number">01</div>
+        <h2>What We Collect</h2>
+        <p>Almost nothing. Here's the complete list:</p>
+        <p><strong>Nothing you say to the AI.</strong> Your conversations are processed entirely on your device using an on-device AI model. We have no server that receives your messages. We have no database storing your chats. We literally cannot read what you write.</p>
+        <p><strong>Nothing about your device.</strong> We don't collect device identifiers, hardware specs, or usage analytics.</p>
+        <p><strong>Optional donation data.</strong> If you choose to support Veil through Ko-fi, that transaction is handled entirely by Ko-fi. We receive no financial information.</p>
+        <div class="pills">
+          <span class="pill">No chat logs</span>
+          <span class="pill">No analytics</span>
+          <span class="pill">No tracking</span>
+          <span class="pill">No ads</span>
+          <span class="pill">No accounts</span>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-number">02</div>
+        <h2>How the AI Works</h2>
+        <p>Veil uses an on-device AI model that is downloaded to your phone once and runs locally. When you send a message, it is processed entirely within your device's memory. No network request is made. No data is transmitted.</p>
+        <p>The AI model itself is a general-purpose language model. It has no knowledge of who you are and no connection to any external service during conversations.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-number">03</div>
+        <h2>Memory Feature</h2>
+        <p>Veil includes an optional memory system that learns facts about you over time — things like your name, preferences, or interests — to personalize future conversations.</p>
+        <p><strong>All memories are stored exclusively on your device</strong> using your phone's local storage. They are never transmitted anywhere. You can view, edit, or delete any memory at any time from within the app. You can clear all memories instantly.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-number">04</div>
+        <h2>Third-Party Services</h2>
+        <p>Veil uses the following third-party services in limited ways:</p>
+        <p><strong>HuggingFace</strong> — The AI model file is downloaded from HuggingFace servers on first launch. After download, no further connection is made. HuggingFace's privacy policy governs that download request.</p>
+        <p><strong>Ko-fi</strong> — The "Support Veil" link opens Ko-fi in your browser. Any donation is governed by Ko-fi's privacy policy. We receive no personal data from this.</p>
+        <p>We do not use advertising networks, analytics SDKs, crash reporting services, or any other third-party tracking.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-number">05</div>
+        <h2>Data Storage & Security</h2>
+        <p>All data Veil stores — your settings, saved chats, and memories — lives in your device's local app storage. It is protected by your device's standard security (PIN, biometrics, encryption). We have no access to it.</p>
+        <p>If you uninstall Veil, all data is permanently deleted from your device.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-number">06</div>
+        <h2>Children's Privacy</h2>
+        <p>Veil is not directed at children under 13. We do not knowingly collect any information from children. If you believe a child has provided information through the app, please contact us and we will assist with removal.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-number">07</div>
+        <h2>Changes to This Policy</h2>
+        <p>If we make meaningful changes to this policy, we'll update the date at the top of this page. Since we collect almost nothing, meaningful changes are unlikely. But if Veil ever adds features that involve data collection, we'll be transparent about it here before shipping.</p>
+      </div>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="contact">
+      <p>Questions about this policy?</p>
+      <p>Reach us at <a href="mailto:privacy@veilai.app">privacy@veilai.app</a></p>
+    </div>
+
+    <footer>
+      <span class="footer-left">© 2025 Veil. All rights reserved.</span>
+      <span class="footer-tagline">Your thoughts stay yours.</span>
+    </footer>
+
+  </div>
+</body>
+</html>
